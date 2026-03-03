@@ -34,7 +34,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@make -C libft fclean
 	@echo "$(YELLOW)[philo] $(RED).a deleted$(RESET)"
 
 re: fclean all
