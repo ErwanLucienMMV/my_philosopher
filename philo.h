@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 12:47:36 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/09 14:43:18 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/09 17:54:38 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,28 @@ typedef struct s_args
 	int	number_of_times_eat;
 	int	time_to_think;
 }	t_args;
+
+typedef struct s_table
+{
+	t_args			args;
+	long			start_time;
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	print_mutex;
+	pthread_mutex_t	stop_mutex;
+	int				stop_simulation;
+	struct s_philo	*philos;
+}	t_table;
+
+typedef struct s_philo
+{
+	int				id;
+	pthread_t		thread;
+	long			last_meal;
+	int				meals_eaten;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
+	struct table	*table;
+}	t_philo;
 
 //		---utils---			//
 int		ft_atoi(const char *str);
