@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 12:47:36 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/09 17:54:38 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/09 18:00:38 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@
 
 typedef struct s_args
 {
-	int	number_of_philo;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	number_of_times_eat;
-	int	time_to_think;
+	int		number_of_philo;
+	long	time_to_die;
+	long	time_to_eat;
+	long	time_to_sleep;
+	int		number_of_times_eat;
+	long	time_to_think;
 }	t_args;
 
 typedef struct s_table
@@ -39,6 +39,7 @@ typedef struct s_table
 	pthread_mutex_t	print_mutex;
 	pthread_mutex_t	stop_mutex;
 	int				stop_simulation;
+	pthread_t		monitor;
 	struct s_philo	*philos;
 }	t_table;
 
@@ -48,9 +49,10 @@ typedef struct s_philo
 	pthread_t		thread;
 	long			last_meal;
 	int				meals_eaten;
+	pthread_mutex_t	meal_mutex;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
-	struct table	*table;
+	t_table			*table;
 }	t_philo;
 
 //		---utils---			//
