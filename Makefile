@@ -6,7 +6,10 @@ MAKEFLAGS += --no-print-directory
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
 
-SRC = main.c \
+SRC = src/main.c \
+      src/parse_argument.c \
+	  src/utils.c \
+	  src/debug.c \
 
 OBJ = $(SRC:.c=.o)
 
