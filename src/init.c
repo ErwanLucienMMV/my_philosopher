@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 16:30:17 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/16 17:14:16 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/16 17:21:23 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	initialize_philo(t_table *table)
 	i = 0;
 	while (i < n)
 	{
-		if (init_philo(table, i) != 1)
+		if (init_philo(table, i))
 		{
 			while (--i >= 0)
 				pthread_mutex_destroy(&(table->philos[i].meal_mutex));
