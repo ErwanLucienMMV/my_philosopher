@@ -13,7 +13,8 @@ SRC = src/main.c \
 	  src/simulation_helpers.c \
 	  src/simulation_functions.c \
 	  src/init.c \
-	  src/cleanup.c 
+	  src/cleanup.c \
+	  src/thread_ripper.c
 
 OBJ = $(SRC:.c=.o)
 
