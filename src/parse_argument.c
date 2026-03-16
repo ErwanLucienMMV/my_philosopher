@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:48:39 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/16 15:30:54 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/16 17:15:53 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	check_for_negative(t_args *args, int argc)
 int	parse_args(int argc, char **argv, t_args *args)
 {
 	if (argc < 5 || argc > 6)
-		return (printf("It seems like the number of argument is incorrect\n"));
+		return (printf("expecting nb of philo, time to die, time_to_eat, time to sleep, [number of meals]\n"));
 	if (ft_is_intnum(argv[1]) == 1)
 		args->number_of_philo = ft_atoi(argv[1]);
 	else

@@ -10,6 +10,10 @@ SRC = src/main.c \
       src/parse_argument.c \
 	  src/utils.c \
 	  src/debug.c \
+	  src/simulation_helpers.c \
+	  src/simulation_functions.c \
+	  src/init.c \
+	  src/cleanup.c 
 
 OBJ = $(SRC:.c=.o)
 
