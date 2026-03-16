@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 14:15:13 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/16 17:22:50 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/16 17:32:43 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int	main(int argc, char **argv)
 		if (!start_simulation(&table))
 		{
 			wait_threads(&table);
-			cleanup(&table);
 		}
 	}
-	return (free(table.philos), free(table.forks), 0);
+	return (cleanup(&table), 0);
 }

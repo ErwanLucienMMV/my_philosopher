@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 16:59:11 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/16 17:05:25 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/16 17:43:43 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	*monitor_routine(void *arg)
 			}
 			i++;
 		}
-		usleep(1000);
+		usleep(10);
 	}
 	return (NULL);
 }
