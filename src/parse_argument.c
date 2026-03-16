@@ -6,12 +6,15 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:48:39 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/09 14:56:15 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/16 15:30:54 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
+/**
+ * Checks if we are in an invalid setup for the simulation
+ */
 int	check_for_negative(t_args *args, int argc)
 {
 	int	res;

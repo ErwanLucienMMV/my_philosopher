@@ -6,13 +6,11 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 14:15:13 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/12 01:13:32 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/16 15:31:56 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
-
-#include "philo.h"
 
 static void	assign_forks(t_table *table, int i)
 {
@@ -21,6 +19,34 @@ static void	assign_forks(t_table *table, int i)
 	n = table->args.number_of_philo;
 	table->philos[i].left_fork = &table->forks[i];
 	table->philos[i].right_fork = &table->forks[(i + 1) % n];
+}
+
+int	init_mutexes(t_table *table)
+{
+	int	i;
+	int	n;
+
+	n = table->args.number_of_philo;
+	table->forks = malloc(sizeof(pthread_mutex_t) * n);
+	if (!table->forks)
+		return (1);
+	i = 0;
+	while (i < n)
+	{
+		if (pthread_mutex_init(&table->forks[i], NULL) != 0)
+		{
+			while (--i >= 0)
+				pthread_mutex_destroy(&table->forks[i]);
+			free(table->forks);
+			return (1);
+		}
+		i++;
+	}
+	if (pthread_mutex_init(&table->print_mutex, NULL) != 0
+		|| pthread_mutex_init(&table->stop_mutex, NULL) != 0)
+		return (1);
+	table->stop_simulation = 0;
+	return (0);
 }
 
 static int	init_philo(t_table *table, int i)
@@ -51,7 +77,7 @@ t_philo	*initialize_philo(t_table *table)
 	while (i < n)
 	{
 		if (init_philo(table, i))
-			return (NULL);
+			return (free(table->philos), NULL);
 		i++;
 	}
 	return (table->philos);
@@ -68,5 +94,9 @@ int	main(int argc, char **argv)
 	table.philos = initialize_philo(&table);
 	if (!table.philos)
 		return (1);
-	return (0);
+	if (!init_mutexes(&table))
+	{
+		table.start_time = get_time();
+	}
+	return (free(table.philos), 0);
 }
