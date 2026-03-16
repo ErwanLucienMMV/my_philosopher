@@ -6,13 +6,12 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 14:15:13 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/16 17:17:10 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/16 17:22:50 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-//Todo: a function that destroys and free all the forks in the array, in case init_philo fails
 int	main(int argc, char **argv)
 {
 	t_args	args;
