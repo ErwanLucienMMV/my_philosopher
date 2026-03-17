@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:48:39 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/16 17:30:54 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/17 19:53:10 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	check_for_negative(t_args *args, int argc)
 	res = 0;
 	args->time_to_think = (args->time_to_die
 			- args->time_to_eat - args->time_to_sleep) / 2;
-	if (args->number_of_philo < 2)
+	if (args->number_of_philo < 1)
 		res = 1;
 	if (args->time_to_die < 0)
 		res = 1;
@@ -31,8 +31,6 @@ int	check_for_negative(t_args *args, int argc)
 	if (args->time_to_sleep < 0)
 		res = 1;
 	if (argc == 6 && args->number_of_times_eat < 0)
-		res = 1;
-	if (args->time_to_eat + args->time_to_sleep > args->time_to_die)
 		res = 1;
 	if (res == 1)
 		return (printf("unfortunately arguments "),

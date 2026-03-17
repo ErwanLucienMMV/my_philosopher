@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:52:43 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/16 18:04:34 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/17 19:59:14 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	is_it_gargantua(t_table *table)
 		pthread_mutex_lock(&table->stop_mutex);
 		table->stop_simulation = 1;
 		pthread_mutex_unlock(&table->stop_mutex);
-		return (printf("Simulation sucessfully finished\n"), 1);
+		return (1);
 	}
 	return (0);
 }
