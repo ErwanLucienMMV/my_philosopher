@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 16:59:11 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/16 18:13:21 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/17 19:46:24 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	*philo_routine(void *arg)
 		print_status(philo, "is sleeping");
 		usleep(philo->table->args.time_to_sleep * 1000);
 		print_status(philo, "is thinking");
+		usleep(philo->table->args.time_to_think * 1000);
 	}
 	return (NULL);
 }
