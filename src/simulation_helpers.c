@@ -6,7 +6,7 @@
 /*   By: emaigne <emaigne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:04:59 by emaigne           #+#    #+#             */
-/*   Updated: 2026/03/16 17:05:46 by emaigne          ###   ########.fr       */
+/*   Updated: 2026/03/17 19:43:18 by emaigne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,11 @@ void	print_status(t_philo *philo, char *msg)
 	long	time;
 
 	pthread_mutex_lock(&philo->table->print_mutex);
-	time = get_time() - philo->table->start_time;
-	printf("%ld %d %s\n", time, philo->id, msg);
+	if (!simulation_stopped(philo->table))
+	{
+		time = get_time() - philo->table->start_time;
+		printf("%ld %d %s\n", time, philo->id, msg);
+	}
 	pthread_mutex_unlock(&philo->table->print_mutex);
 }
 
