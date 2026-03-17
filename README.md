@@ -51,3 +51,6 @@ make
 [Page manuel de pthread_create](http://manpagesfr.free.fr/man/man3/pthread_create.3.html)
 
 [Page manuel de pthread_mutex_init](http://manpagesfr.free.fr/man/man3/pthread_mutex_init.3.html)
+
+Use of AI:
+ChatGPT when I couldn't figure when an odd amount of philo caused death (I was dumb and forgot to usleep them for time_to_think so they were all perma eating when not sleeping and in a race, when that thinking time creates a few waves)
